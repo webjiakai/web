@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>模拟重载</title>
+		<meta charset="UTF-8"/>
+	</head>
+	<body>
+		
+	</body>
+</html>
+<script>
+	function Person(){
+		var args = arguments;
+		//判断传进去的是否为对象
+		if(typeof args[0] === "object" && args[0]){
+			if(args[0].name){
+				this.name = args[0].name;
+			}
+			if(args[0].age){
+				this.age = args[0].age;
+			}
+		}else{
+			if(args[0]){
+				this.name = args[0]
+			}
+			if(args[1]){
+				this.age = args[1]
+			}
+		}
+	};
+	Person.prototype.toString = function(){
+		return "name= "+this.name+" ;age= "+this.age;
+	}
+	var demo = new Person("Jack","22");
+	var demo1 = new Person({name: "jiakai",age:"18"})
+	console.log(demo.toString())
+	console.log(demo1.toString())
+	
+</script>
